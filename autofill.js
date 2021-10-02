@@ -1,15 +1,16 @@
-var progressBars = document.querySelectorAll(".skill-progress > div")
+var progressBars = document.querySelectorAll(".skill-progress > div");
 
-function initilisation(bar) {
+function initialiseBar(bar) {
     bar.setAttribute("data-visited", false);
     bar.style.width = 0 + '%';
-
 }
+
 for (var bar of progressBars) {
-    initiliserBar(bar);
+    initialiseBar(bar);
 }
 
 function fillBar(bar) {
+
     var currentWidth = 0;
     var targetWidth = bar.getAttribute("data-bar-width");
     var interval = setInterval(function() {
@@ -24,9 +25,10 @@ function fillBar(bar) {
 }
 
 function checkScroll() {
+
     for (let bar of progressBars) {
         var barCoordinates = bar.getBoundingClientRect();
-        if ((bar.getAttributeNS("data-visited") == "false") &&
+        if ((bar.getAttribute("data-visited") == "false") &&
             (barCoordinates.top <= (window.innerHeight - barCoordinates.height))) {
             bar.setAttribute("data-visited", true);
             fillBar(bar);
@@ -34,6 +36,7 @@ function checkScroll() {
             bar.setAttribute("data-visited", false);
             initialiseBar(bar);
         }
+
     }
 }
 window.addEventListener("scroll", checkScroll);
