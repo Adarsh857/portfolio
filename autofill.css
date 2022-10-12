@@ -40,7 +40,9 @@ body {
     color: lightgrey;
     border-bottom: 1px solid black;
 }
-
+.project-cards{
+    display: flex;
+}
 .text-center {
     text-align: center;
 }
